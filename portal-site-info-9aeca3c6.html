@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>乐鱼体育 · 专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(145deg, #fcedd5 0%, #f9dbb4 40%, #f7cf9a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2c241a;
+        }
+
+        .magazine-card {
+            max-width: 900px;
+            width: 100%;
+            background-color: #fffffffa;
+            backdrop-filter: blur(1px);
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 18px 32px -8px rgba(140, 80, 20, 0.25), 0 4px 12px rgba(255, 215, 160, 0.3);
+            padding: 2.8rem 2.4rem 2.4rem;
+            transition: all 0.2s ease;
+            border: 1px solid #fff7e6;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .magazine-card {
+                padding: 1.8rem 1.2rem 1.6rem;
+                border-radius: 32px 32px 24px 24px;
+            }
+        }
+
+        /* hero 区域 */
+        .hero-tag {
+            display: inline-block;
+            background: #edc9a6;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 0.3px;
+            color: #543d27;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            border: 1px solid #dfb48b;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #2b1d10;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .dek {
+            font-size: 1.1rem;
+            color: #5e4a35;
+            margin-bottom: 2.2rem;
+            border-left: 4px solid #dbaa7b;
+            padding-left: 1.2rem;
+            font-style: normal;
+            font-weight: 380;
+            background: linear-gradient(to right, #fbf3e8, transparent);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* 正文段落卡片风格 */
+        .content-block {
+            margin: 2.5rem 0;
+        }
+
+        .content-block p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #2f281f;
+        }
+
+        .content-block strong {
+            color: #623f23;
+            font-weight: 530;
+        }
+
+        .insight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.8rem 0 2rem;
+        }
+
+        .insight-item {
+            background: #faf1e6;
+            padding: 1rem 1.4rem;
+            border-radius: 24px;
+            flex: 1 1 180px;
+            border: 1px solid #eedccb;
+            box-shadow: 0 2px 6px rgba(150, 90, 30, 0.06);
+        }
+
+        .insight-item .num {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 350;
+            color: #9e7a5a;
+            line-height: 1.2;
+        }
+
+        .insight-item .label {
+            font-size: 0.9rem;
+            color: #4f3a27;
+        }
+
+        .faq-mini {
+            background: #fef9f2;
+            border-radius: 28px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 1.5rem;
+            border: 1px solid #e7d2bd;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: default;
+            color: #4b3621;
+            font-size: 1.05rem;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini p {
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            color: #3f3224;
+        }
+
+        .link-sentence {
+            background: #fceddf;
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 0.2rem 0;
+        }
+
+        .cta-wrap {
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 2px dotted #e7cfb8;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cta-wrap span {
+            font-size: 0.95rem;
+            color: #4c3827;
+        }
+
+        .pill-link {
+            display: inline-block;
+            background: #f7e2d0;
+            border-radius: 60px;
+            padding: 0.6rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 470;
+            color: #2c1d0f;
+            text-decoration: none;
+            border: 1px solid #dfbb9f;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(160, 100, 40, 0.08);
+        }
+
+        .pill-link:hover {
+            background: #edd3bb;
+            border-color: #be8f6b;
+            transform: scale(1.02);
+            box-shadow: 0 5px 14px rgba(130, 70, 25, 0.12);
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            font-size: 0.85rem;
+            color: #6b5947;
+            text-align: center;
+            border-top: 1px solid #e4cfbb;
+            padding-top: 1.6rem;
+            letter-spacing: 0.2px;
+        }
+
+        a {
+            color: #6d482a;
+            text-decoration: none;
+            font-weight: 470;
+            border-bottom: 1px solid #dbb692;
+            transition: border 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #8b5e38;
+        }
+
+        .clean-link {
+            border-bottom: none;
+        }
+
+        .clean-link:hover {
+            border-bottom: none;
+        }
+
+        /* 点缀 */
+        .muted-note {
+            opacity: 0.7;
+            font-size: 0.85rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine-card">
+
+        <!-- 杂志头 -->
+        <div class="hero-tag">⏺ 深度专题 · 运动生活</div>
+        <h1>乐鱼体育：浸入节奏与活力</h1>
+        <div class="dek">不只是观看，更是一种日常的共鸣</div>
+
+        <!-- 三段自然介绍 + 背景说明 -->
+        <div class="content-block">
+            <p>
+                <strong>运动带来的内在节拍</strong> — 在快节奏的城市缝隙里，很多人选择用一场球赛、一次夜跑来切换状态。
+                <strong>乐鱼体育</strong> 所凝聚的，正是这种对赛场和汗水的亲近感。它不夸大某种激情，
+                而是用持续的内容与社区氛围，让每个普通人都能找到适合自己的运动触点。从绿茵场上的战术配合，到泳池边的呼吸节奏，
+                运动从来不是少数人的特权。
+            </p>
+            <p>
+                <strong>从旁观到参与</strong> — 过去几年，体育内容的边界变得模糊而丰富。有人习惯在清晨浏览赛事集锦，
+                有人喜欢深读运动员故事，也有人仅仅为了放松而打开一场直播。<strong>乐鱼体育</strong> 的视野恰好覆盖了这些细微的入口：
+                资讯、赛程、数据以及轻松的讨论。它让“体育”不再是一个遥远的名词，而是陪伴日常的背景音。
+            </p>
+            <p>
+                <strong>自然生长的连接</strong> — 无论是跑步社群、篮球圈子还是骑行路线分享，
+                共同的爱好总能催生真实的互动。在 <a href="https://portal-site-leyu.com.cn" class="clean-link">乐鱼体育</a> 的板块里，
+                你或许会看到某个周末的线下约球，或者一篇关于体能恢复的随笔。这种自然的交流，让体育回归到最初的社交本能——
+                一起流汗，一起欢呼，一起坚持。
+            </p>
+        </div>
+
+        <!-- 特点 / 场景摘要 (杂志式数据卡片) -->
+        <div class="insight-grid">
+            <div class="insight-item">
+                <span class="num">⚽ 多项目</span>
+                <span class="label">足球、篮球、网球、游泳、田径、户外……覆盖主流及小众运动，内容持续更新。</span>
+            </div>
+            <div class="insight-item">
+                <span class="num">📱 适配场景</span>
+                <span class="label">通勤时速览，午休看战报，睡前读人物。移动端与桌面同样流畅。</span>
+            </div>
+            <div class="insight-item">
+                <span class="num">🗂 社区回声</span>
+                <span class="label">不只是资讯聚合，用户评论、互动问答、约战组队，让交流发生。</span>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 (轻量) -->
+        <div class="faq-mini">
+            <summary>❓ 一些常见的想法 · FAQ 速览</summary>
+            <p>
+                <strong>内容更新频率？</strong> 每日都有赛果、前瞻和原创专栏，重大赛事期间会增加实时内容。<br>
+                <strong>需要注册才能浏览？</strong> 大部分资讯和内容可直接阅读，部分互动功能可选加入。<br>
+                <strong>是否包含深度分析？</strong> 既有短讯，也有战术解析、人物访谈，适合不同阅读习惯。
+            </p>
+        </div>
+
+        <!-- 页尾访问提示 + a 标签自然嵌入 -->
+        <div class="cta-wrap">
+            <span>
+                如果你对体育内容有自己的偏好，不妨在闲暇时打开 <a href="https://portal-site-leyu.com.cn">乐鱼体育</a>，
+                从一场比赛、一篇笔记开始，感受运动带来的舒展与连接。
+            </span>
+            <a href="https://portal-site-leyu.com.cn" class="pill-link">乐鱼体育</a>
+        </div>
+
+        <div class="footer-note">
+            —— 专题 · 温和视角 ——<br>
+            <span class="muted-note">围绕兴趣与日常，不设限，不喧哗。</span>
+        </div>
+
+    </div>
+</body>
+</html>
